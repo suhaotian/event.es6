@@ -12,5 +12,5 @@ event.on('say', function(what) {  // or event.subscribe('say', function(what){..
 event.emit('say', 'nothing')  // or event.fire('say', 'nothing')
 
 // remove event
-event.off('say') // or event.unscribe('say')
+event.off('say') // or event.unsubscribe('say')
 ```
