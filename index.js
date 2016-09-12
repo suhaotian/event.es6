@@ -1,6 +1,10 @@
 export default class Event {
   constructor(){
     this.cbs = {}
+
+    this.subscribe = this.add = this.on
+    this.unsubscribe = this.remove = this.off
+    this.fire = this.emit
   }
 
   // Maybe need once ?
@@ -33,15 +37,5 @@ export default class Event {
         this.cbs[name][i](payload)
       }
     }
-  }
-
-  fire(name, payload) {
-    this.emit(name, payload)
-  }
-  subscribe(name, cb) {
-    this.on(name, cb)
-  }
-  unsubscribe(name, cb) {
-    this.off(name, cb)
   }
 }
