@@ -4,7 +4,7 @@ export default class Event {
 
     this.subscribe = this.add = this.on
     this.unsubscribe = this.remove = this.off
-    this.fire = this.emit
+    this.dispatch = this.fire = this.emit
   }
 
   // Maybe need once ?
