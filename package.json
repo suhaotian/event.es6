@@ -1,6 +1,6 @@
 {
   "name": "event.es6",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Sub/Pub lib write with es6. just ~40 sloc.",
   "main": "index.js",
   "scripts": {

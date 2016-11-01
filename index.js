@@ -33,13 +33,13 @@ class Event {
     delete this.cbs[name]
   }
 
-  emit(name, payload) {
+  emit(name, payload, ...other) {
     if(this.cbs[name]) {
       for (let i = 0; i < this.cbs[name].length;i++) {
         let cb = this.cbs[name][i]
-        cb(payload)
+        cb(payload, ...other)
       }
-      this.handleEmit(name, payload)
+      this.handleEmit(name, payload, ...other)
     }
      
   }
