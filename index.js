@@ -1,7 +1,9 @@
 class Event {
-  constructor(){
+  constructor(handleEmit){
+    /* handle emit event */
+    this.handleEmit = handleEmit || function (){}
+    
     this.cbs = {}
-
     this.subscribe = this.add = this.on
     this.unsubscribe = this.remove = this.off
     this.dispatch = this.fire = this.emit
@@ -34,10 +36,12 @@ class Event {
   emit(name, payload) {
     if(this.cbs[name]) {
       for (let i = 0; i < this.cbs[name].length;i++) {
-        const cb = this.cbs[name][i]
+        let cb = this.cbs[name][i]
         cb(payload)
       }
+      this.handleEmit(name, payload)
     }
+     
   }
 }
 
