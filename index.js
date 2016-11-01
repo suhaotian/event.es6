@@ -1,10 +1,10 @@
-export default class Event {
+class Event {
   constructor(){
     this.cbs = {}
 
     this.subscribe = this.add = this.on
     this.unsubscribe = this.remove = this.off
-    this.fire = this.emit
+    this.dispatch = this.fire = this.emit
   }
 
   // Maybe need once ?
@@ -34,8 +34,11 @@ export default class Event {
   emit(name, payload) {
     if(this.cbs[name]) {
       for (let i = 0; i < this.cbs[name].length;i++) {
-        this.cbs[name][i](payload)
+        const cb = this.cbs[name][i]
+        cb(payload)
       }
     }
   }
 }
+
+module.exports = Event
