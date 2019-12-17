@@ -1,12 +1,31 @@
 {
   "name": "event.es6",
-  "version": "0.0.7",
-  "description": "Sub/Pub lib write with es6. just ~40 sloc.",
-  "main": "./dist/index.js",
+  "version": "1.0.0",
+  "description": "Sub/Pub lib write in TypeScript. just ~40 sloc.",
+  "main": "dist/index.js",
+  "module": "dist/entity.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src --presets babel-preset-es2015 --out-dir dist",
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
     "prepublish": "npm run build"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
   },
   "repository": {
     "type": "git",
@@ -23,8 +42,7 @@
     "url": "https://github.com/suhaotian/event.es6/issues"
   },
   "homepage": "https://github.com/suhaotian/event.es6#readme",
-  "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-preset-es2015": "^6.18.0"
+  "dependencies": {
+    "tsdx": "^0.11.0"
   }
 }
