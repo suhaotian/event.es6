@@ -9,7 +9,7 @@ export default class Event {
   protected fire: (name: string, payload: any, other?: any[]) => void;
 
   constructor(
-    handleEmit: (name: string, cb: () => void, other?: any[]) => void
+    handleEmit?: (name: string, cb: () => void, other?: any[]) => void
   ) {
     /* handle emit event */
     this.handleEmit = handleEmit || function() {};
