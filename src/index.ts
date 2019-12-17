@@ -1,15 +1,23 @@
 export default class Event {
-  protected handleEmit: (name: string, cb: () => void, other?: any[]) => void;
+  protected handleEmit: (
+    name: string,
+    cb: (payload?: any) => void,
+    other?: any[]
+  ) => void;
   protected cbs: any;
-  public add: (name: string, cb: () => void) => void;
-  public subscribe: (name: string, cb: () => void) => void;
-  public unsubscribe: (name: string, cb: () => void) => void;
-  public remove: (name: string, cb: () => void) => void;
+  public add: (name: string, cb: (payload?: any) => void) => void;
+  public subscribe: (name: string, cb: (payload?: any) => void) => void;
+  public unsubscribe: (name: string, cb: (payload?: any) => void) => void;
+  public remove: (name: string, cb: (payload?: any) => void) => void;
   public dispatch: (name: string, payload: any, other?: any[]) => void;
   public fire: (name: string, payload: any, other?: any[]) => void;
 
   constructor(
-    handleEmit?: (name: string, cb: () => void, other?: any[]) => void
+    handleEmit?: (
+      name: string,
+      cb: (payload?: any) => void,
+      other?: any[]
+    ) => void
   ) {
     /* handle emit event */
     this.handleEmit = handleEmit || function() {};
@@ -23,7 +31,7 @@ export default class Event {
   // Maybe need once ?
   /* once(name,  cb) {} */
 
-  on(name: string | number, cb: () => void) {
+  on(name: string | number, cb: (payload?: any) => void) {
     if (this.cbs[name] !== undefined) {
       this.cbs[name].push(cb);
     } else {
@@ -31,7 +39,7 @@ export default class Event {
     }
   }
 
-  off(name: string, cb: () => void) {
+  off(name: string, cb: (payload?: any) => void) {
     if (this.cbs[name] && cb) {
       for (let i = 0; i < this.cbs[name].length; i++) {
         if (this.cbs[name][i] === cb) {
