@@ -1,12 +1,12 @@
 export default class Event {
   protected handleEmit: (name: string, cb: () => void, other?: any[]) => void;
   protected cbs: any;
-  protected add: (name: string, cb: () => void) => void;
-  protected subscribe: (name: string, cb: () => void) => void;
-  protected unsubscribe: (name: string, cb: () => void) => void;
-  protected remove: (name: string, cb: () => void) => void;
-  protected dispatch: (name: string, payload: any, other?: any[]) => void;
-  protected fire: (name: string, payload: any, other?: any[]) => void;
+  public add: (name: string, cb: () => void) => void;
+  public subscribe: (name: string, cb: () => void) => void;
+  public unsubscribe: (name: string, cb: () => void) => void;
+  public remove: (name: string, cb: () => void) => void;
+  public dispatch: (name: string, payload: any, other?: any[]) => void;
+  public fire: (name: string, payload: any, other?: any[]) => void;
 
   constructor(
     handleEmit?: (name: string, cb: () => void, other?: any[]) => void
