@@ -1,4 +1,4 @@
-module.exports =  class Event {
+class Event {
   protected handleEmit: (
     name: string,
     cb: (payload?: any) => void,
@@ -62,3 +62,6 @@ module.exports =  class Event {
     }
   }
 }
+
+
+export default Event;
