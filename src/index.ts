@@ -1,3 +1,6 @@
+type Callback = (name: string, cb: (payload?: any) => void) => void;
+type Dispatch = (name: string, payload: any, other?: any[]) => void;
+
 class Event {
   handleEmit: (
     name: string,
@@ -5,12 +8,12 @@ class Event {
     other?: any[]
   ) => void;
   cbs: any;
-  add: (name: string, cb: (payload?: any) => void) => void;
-  subscribe: (name: string, cb: (payload?: any) => void) => void;
-  unsubscribe: (name: string, cb: (payload?: any) => void) => void;
-  remove: (name: string, cb: (payload?: any) => void) => void;
-  dispatch: (name: string, payload: any, other?: any[]) => void;
-  fire: (name: string, payload: any, other?: any[]) => void;
+  add: Callback;
+  subscribe: Callback;
+  unsubscribe: Callback;
+  remove: Callback;
+  dispatch: Dispatch;
+  fire: Dispatch;
   constructor(
     handleEmit?: (
       name: string,
@@ -27,7 +30,15 @@ class Event {
     this.dispatch = this.fire = this.emit;
   }
 
-  on(name: string | number, cb: (payload?: any) => void) {
+  once(name: string, cb: (payload?: any) => void) {
+    const fn = () => {
+      cb(...arguments);
+      this.off(name, fn);
+    };
+    this.on(name, fn);
+  }
+
+  on(name: string, cb: (payload?: any) => void) {
     if (this.cbs[name] !== undefined) {
       this.cbs[name].push(cb);
     } else {

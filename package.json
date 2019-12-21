@@ -1,6 +1,6 @@
 {
   "name": "event.es6",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Sub/Pub lib write in TypeScript. just ~40 sloc.",
   "main": "dist/index.js",
   "module": "dist/entity.esm.js",
