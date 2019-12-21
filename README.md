@@ -5,7 +5,7 @@ A simple event lib for fire/emit and on/off (or subscribe/unsubscribe whatever y
 ## usage
 
 ```js
-const Event = require('event.es6').default;
+import { Event } from 'event.es6';
 const event = new Event();
 
 event.on('say', function(what) {

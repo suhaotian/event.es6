@@ -1,17 +1,16 @@
 class Event {
-  protected handleEmit: (
+  handleEmit: (
     name: string,
     cb: (payload?: any) => void,
     other?: any[]
   ) => void;
-  protected cbs: any;
-  public add: (name: string, cb: (payload?: any) => void) => void;
-  public subscribe: (name: string, cb: (payload?: any) => void) => void;
-  public unsubscribe: (name: string, cb: (payload?: any) => void) => void;
-  public remove: (name: string, cb: (payload?: any) => void) => void;
-  public dispatch: (name: string, payload: any, other?: any[]) => void;
-  public fire: (name: string, payload: any, other?: any[]) => void;
-
+  cbs: any;
+  add: (name: string, cb: (payload?: any) => void) => void;
+  subscribe: (name: string, cb: (payload?: any) => void) => void;
+  unsubscribe: (name: string, cb: (payload?: any) => void) => void;
+  remove: (name: string, cb: (payload?: any) => void) => void;
+  dispatch: (name: string, payload: any, other?: any[]) => void;
+  fire: (name: string, payload: any, other?: any[]) => void;
   constructor(
     handleEmit?: (
       name: string,
@@ -27,9 +26,6 @@ class Event {
     this.unsubscribe = this.remove = this.off;
     this.dispatch = this.fire = this.emit;
   }
-
-  // Maybe need once ?
-  /* once(name,  cb) {} */
 
   on(name: string | number, cb: (payload?: any) => void) {
     if (this.cbs[name] !== undefined) {
@@ -63,5 +59,4 @@ class Event {
   }
 }
 
-
-export default Event;
+export { Event };
