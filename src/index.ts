@@ -46,8 +46,8 @@ class Event {
     }
   }
 
-  off(name: string, cb: (payload?: any) => void) {
-    if (this.cbs[name] && cb) {
+  off(name: string, cb?: (payload?: any) => void) {
+    if (this.cbs.hasOwnProperty(name) && cb) {
       for (let i = 0; i < this.cbs[name].length; i++) {
         if (this.cbs[name][i] === cb) {
           this.cbs[name].splice(i, 1);
@@ -60,7 +60,7 @@ class Event {
   }
 
   emit(name: string, payload: any, ...other: any[]) {
-    if (this.cbs[name]) {
+    if (this.cbs.hasOwnProperty(name)) {
       for (let i = 0; i < this.cbs[name].length; i++) {
         let cb = this.cbs[name][i];
         cb(payload, ...other);
