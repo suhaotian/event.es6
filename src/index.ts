@@ -59,7 +59,7 @@ class Event {
     delete this.cbs[name];
   }
 
-  emit(name: string, payload: any, ...other: any[]) {
+  emit(name: string, payload?: any, ...other: any[]) {
     if (this.cbs.hasOwnProperty(name)) {
       for (let i = 0; i < this.cbs[name].length; i++) {
         let cb = this.cbs[name][i];
