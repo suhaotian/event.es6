@@ -1,6 +1,6 @@
 {
   "name": "event.es6",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Sub/Pub lib write in TypeScript. just ~40 sloc.",
   "main": "dist/index.js",
   "module": "dist/entity.esm.js",
@@ -43,6 +43,7 @@
   },
   "homepage": "https://github.com/suhaotian/event.es6#readme",
   "devDependencies": {
+    "@types/jest": "^25.2.1",
     "tsdx": "^0.11.0"
   }
 }
