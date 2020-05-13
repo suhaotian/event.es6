@@ -1,4 +1,4 @@
-import { Event } from './index';
+import { Event } from '../src';
 
 describe('test', () => {
   const EE = new Event();
