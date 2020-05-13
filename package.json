@@ -44,6 +44,6 @@
   "homepage": "https://github.com/suhaotian/event.es6#readme",
   "devDependencies": {
     "@types/jest": "^25.2.1",
-    "tsdx": "^0.11.0"
+    "tsdx": "^0.13.2"
   }
 }
